@@ -12,7 +12,9 @@
 
 ## 本地打开
 
-在此目录运行 `python -m http.server 4173 --directory dist`，然后访问 http://localhost:4173 。也可直接打开 dist/index.html。
+在此目录运行 `python preview.py`，然后访问 http://127.0.0.1:4173/ 。此预览禁用缓存，修改后刷新即可看到更新。
+
+发布前运行 `node scripts/version-assets.mjs`，按文件内容给 JS/CSS 链接加版本号，避免浏览器复用旧资源。线上 HTML 仍可能受托管平台缓存影响，首次切换时可用 Ctrl+Shift+R 强制刷新。
 
 ## 数据
 
