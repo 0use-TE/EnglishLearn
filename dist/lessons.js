@@ -177,3 +177,96 @@ for (const lesson of lessons) Object.assign(lesson,lessonExtras[lesson.id]||{});
 const doubleObjects = lessons.find(l => l.id === 'double-objects');
 doubleObjects.reference.headers.push('换序用');
 doubleObjects.reference.rows.forEach((row, index) => row.push(index < 9 ? 'to' : 'for'));
+
+// Section names describe the actual topic; examples precede edge cases.
+const lessonHeadings = {
+ sentence:'主语、谓语与其他成分',patterns:'五种基本句型',transitive:'动词与宾语的关系',
+ 'double-objects':'直接宾语与间接宾语',be:'be 的作用',agreement:'主语与动词形式',
+ nouns:'名词的数量形式',articles:'泛指与特指',quantifiers:'数量词与名词搭配',pronouns:'代词的形式与位置',
+ adjectives:'修饰名词与修饰动作',prepositions:'时间、地点与其他关系',present:'习惯、事实与稳定状态',
+ continuous:'进行中的动作',past:'过去的动作与状态',perfect:'过去与现在的联系',future:'将来的计划、决定与预测',
+ questions:'否定与疑问的基本结构',modals:'情态动词的基本结构',passive:'动作执行者与承受者',
+ comparison:'比较的形式与范围',there:'存在句与祈使句',conjunctions:'短语、分句与连接关系',
+ relative:'修饰名词的从句','noun-clauses':'充当句子成分的从句',adverbial:'补充时间、原因与条件',
+ conditionals:'条件与结果',infinitive:'非谓语动词',participles:'分词的形式与作用',reported:'转述中的视角变化',
+ subjunctive:'愿望、建议与假设',emphasis:'信息的突出与省略'
+};
+for (const lesson of lessons) lesson.introHeading=lessonHeadings[lesson.id];
+const infinitiveLesson=lessons.find(l=>l.id==='infinitive');
+Object.assign(infinitiveLesson,{
+ explain:'句子需要谓语动词来说明动作或状态。一个句子里出现其他动作时，它们还可以用不定式、动名词等形式，充当主语、宾语或表示目的。这些形式叫非谓语，不能直接代替句子的谓语。例如 I want to learn English 中，want 是谓语，to learn English 表示“想做的事”。',
+ pattern:'不定式：to + 动词原形　｜　动名词：动词的 -ing 形式',
+ examples:[
+  ['I want to learn English.','我想学英语。','want 是谓语；to learn English 作宾语，说明“想做什么”。'],
+  ['I came here to help you.','我来这里是为了帮你。','came 是谓语；to help you 表示来这里的目的。'],
+  ['Swimming is fun.','游泳很有趣。','Swimming 是动名词，表示“游泳这件事”，在句中作主语。谓语是 is。'],
+  ['I enjoy reading.','我喜欢阅读。','enjoy 是谓语；reading 是动名词，作 enjoy 的宾语。'],
+  ['I look forward to hearing from you.','我期待收到你的消息。','look forward to 中的 to 是介词，后面接 hearing，不是不定式 to hear。']
+ ],
+ sections:[
+  {title:'不定式',paragraph:'本节先学带 to 的不定式，如 to learn、to work。它可以表示某人想做、计划做的事情，也可以说明一个动作的目的。情态动词后等位置使用不带 to 的原形结构，另有自己的搭配规则。',examples:[0,1]},
+  {title:'动名词',paragraph:'动名词把一个动作当作“一件事”来表达，如 reading 表示“阅读这件事”。它常作主语、宾语，或放在介词后。-ing 也出现在进行时中，但 I am reading 的 reading 与 Reading is useful 的 Reading 在句中作用不同。',examples:[2,3]}
+ ],
+ mainExampleCount:4,
+ reference:{title:'常见动词搭配',headers:['后续形式','常用搭配'],rows:[
+  ['to + 原形','want to do · 想做\nplan to do · 计划做\ndecide to do · 决定做\nhope to do · 希望做'],
+  ['-ing','enjoy doing · 喜欢做\nfinish doing · 做完\navoid doing · 避免做\nmind doing · 介意做'],
+  ['两种都可','like / love 等可接两种形式，具体侧重点看语境；stop / remember 等换形式会改变含义。']
+ ]},
+ shortTip:'动词后面接哪种形式，要按搭配选择：want to do；enjoy doing。',
+ tip:'to 并不总是不定式的标记。look forward to 中的 to 是介词，所以后接 -ing。先辨认整个搭配，再判断后面用什么形式。'
+});
+
+// Different topics need different explanations, not identical page outlines.
+Object.assign(lessons.find(l=>l.id==='be'),{
+ explain:'be 是连接主语和身份、状态或位置的动词。中文可以说“我很累”，英文需要 I am tired，中间的 am 不能省略。be 有多种形式，要根据主语和时间选择。',
+ pattern:'主语 + be + 身份、状态或位置',
+ examples:[
+  ['I am a developer.','我是一名开发者。','a developer 说明身份。'],
+  ['The cat is happy.','猫很开心。','happy 说明状态，英文需要 is 连接。'],
+  ['My keys are on the desk.','我的钥匙在桌上。','on the desk 说明位置，keys 是复数，配 are。'],
+  ['I was tired yesterday.','我昨天很累。','yesterday 指过去，I 后的 am 改成 was。'],
+  ['She is not tired.','她不累。','否定在 is 后加 not；is not 可以缩写为 isn’t。'],
+  ['Is she tired?','她累吗？','把 is 移到主语 she 前，不加 do。']
+ ],
+ sections:[
+  {title:'现在与过去的形式',paragraph:'现在说 am / is / are，谈过去状态常用 was / were。',table:{headers:['主语','现在','过去'],rows:[['I','am','was'],['he / she / it、单数名词','is','was'],['you / we / they、复数名词','are','were']]},examples:[]},
+  {title:'身份、状态和位置',paragraph:'be 后面的内容说明主语是什么、怎么样或在哪里。',examples:[0,1,2]},
+  {title:'过去的状态',paragraph:'句子骨架相同，时间改变时，be 的形式也要变化。',examples:[3]},
+  {title:'否定句与一般疑问句',paragraph:'否定在 be 后加 not；一般疑问把 be 提到主语前。',examples:[4,5]}
+ ],
+ mainExampleCount:6,
+ shortTip:'I am happy. 正确；I happy. 缺少谓语。I work. 已有谓语，不再加 am。',
+ tip:'be 还可以作助动词：am reading 构成进行结构，was built 构成被动结构。它们与本节表示身份、状态的用法有关，但结构不同，可分别学习。',
+ related:['continuous','passive']
+});
+Object.assign(lessons.find(l=>l.id==='past'),{
+ explain:'一般过去时把动作或状态放在过去。它常与 yesterday、last week 等时间表达一起用；时间已在上下文中明确时，也不必每句都写时间词。先掌握动词的过去式，再学习否定与提问。',
+ examples:[
+  ['I fixed a bug yesterday.','我昨天修复了一个 bug。','fix 是规则动词，过去式加 -ed。'],
+  ['We went to a concert last week.','我们上周听了一场音乐会。','go 是不规则动词，过去式是 went。'],
+  ['I did not work yesterday.','我昨天没有工作。','否定用 did not + work；did not 可缩写为 didn’t。'],
+  ['Did you finish the task?','你完成任务了吗？','did 已经表示过去，finish 保持原形。']
+ ],
+ sections:[
+  {title:'动词的过去式',paragraph:'规则动词通常加 -ed，部分单词需要改变拼写。不规则动词则要结合例句记住。',table:{headers:['变化','例子'],rows:[['通常加 -ed','work → worked'],['以辅音字母 + y 结尾，常变 y 为 i 再加 -ed','study → studied'],['部分词双写末尾辅音字母再加 -ed','stop → stopped'],['不规则变化','go → went；write → wrote']]},examples:[0,1]},
+  {title:'did 后接动词原形',paragraph:'一般过去时的实义动词否定句和一般疑问句通常借助 did。过去的标记交给 did，后面的主要动词恢复原形。',examples:[2,3]}
+ ],mainExampleCount:4,
+ tip:'be 的过去式是 was / were；其否定和疑问直接用 be，不用 did：She wasn’t tired. / Was she tired?'
+});
+Object.assign(lessons.find(l=>l.id==='questions'),{
+ explain:'提问和否定的结构，取决于原句中的动词。先看有没有 be、情态动词或其他助动词；如果没有，一般现在、过去时的实义动词句通常需要 do / does / did。',
+ examples:[
+  ['She is not tired. / Is she tired?','她不累。／她累吗？','原句 She is tired 中已有 is，直接用它构成否定和疑问。'],
+  ['She does not like tea. / Does she like tea?','她不喜欢茶。／她喜欢茶吗？','like 是实义动词，一般现在时借助 does，后面用原形 like。'],
+  ['He cannot swim. / Can he swim?','他不会游泳。／他会游泳吗？','原句已有情态动词 can，不再加 do。cannot 常缩写为 can’t。'],
+  ['Who called you? / Where does he work?','谁给你打了电话？／他在哪里工作？','Who 自己作主语；Where 不是主语，后面的问句仍借助 does。']
+ ],
+ sections:[
+  {title:'be 动词句',paragraph:'否定在 be 后加 not；一般疑问把 be 移到主语前。',examples:[0]},
+  {title:'实义动词句',paragraph:'一般现在时用 do / does，一般过去时用 did。否定加 not；提问将它放在主语前，主要动词用原形。',examples:[1]},
+  {title:'已有情态动词的句子',paragraph:'否定在情态动词后加 not；一般疑问将它移到主语前。完成时中的 have / has 等助动词也不再额外借助 do。',examples:[2]},
+  {title:'特殊疑问句',paragraph:'用 who、what、where、why 等询问信息。疑问词本身作主语时，结构与询问其他成分不同。',examples:[3]}
+ ],mainExampleCount:4,comparisonsToShow:[1]
+});
+lessons.find(l=>l.id==='modals').omitExamples=true;

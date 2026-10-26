@@ -100,7 +100,7 @@ C('participles','-ing 和 -ed 感受形容词：令人怎样，还是感到怎�
  '不能背成“人用 -ed，物用 -ing”：He is boring 是“他这个人很无趣”；He is bored 是“他感到无聊”。');
 
 const modalGuide={
- title:'先按意思选，再套结构',
+ title:'常见情态动词的含义',
  rows:[
   ['can','能力；也可请求或给予许可','I can swim. / Can I use this?','我会游泳。／我能用这个吗？'],
   ['should','建议；也可表示合理预期','You should rest. / The bus should arrive soon.','你应该休息。／公交车应该快到了。'],
@@ -118,9 +118,22 @@ for(const lesson of lessons){
  if(lesson.id==='modals')lesson.usageGuide=modalGuide;
 }
 
-function comparisonContent(lesson){
+const comparisonHeadings={modals:'情态动词的含义与语气',questions:'疑问句的语序',present:'习惯与正在进行的动作',perfect:'完成与进行的侧重点',future:'将来表达的选择',articles:'冠词的选择',quantifiers:'数量与可数性',adjectives:'形容词与副词',relative:'限定范围与补充信息','noun-clauses':'连接词在从句中的作用',conditionals:'真实条件与假设',infinitive:'同一动词后的不同结构',participles:'分词形容词的含义'};
+const comparisonTitles={
+ modals:['can 与 might','should 与 must','mustn’t 与 don’t have to','must 与 can’t：推测'],
+ questions:['be 与 do / does / did','直接疑问与间接疑问'],
+ present:['一般现在时与现在进行时'],perfect:['一般过去时与现在完成时','现在完成时与现在完成进行时'],
+ future:['will 与 be going to','主句与时间、条件从句'],articles:['a / an 与 the','a 与 an'],
+ quantifiers:['many 与 much','a few / a little 与 few / little'],adjectives:['good 与 well'],
+ relative:['限定性与非限定性定语从句'],'noun-clauses':['that 与 what'],
+ conditionals:['真实未来条件与现在假设','现在假设与过去假设'],infinitive:['stop 的两种结构','remember 的两种结构'],
+ participles:['-ing 与 -ed 形容词']
+};
+for(const lesson of lessons)if(lesson.comparisons)lesson.comparisons.forEach((c,i)=>c.title=comparisonTitles[lesson.id][i]);
+function comparisonContent(lesson,part='all'){
  const guide=lesson.usageGuide;
  const usage=guide?`<section class="lesson-section usage-guide"><h2>${esc(guide.title)}</h2><div class="usage-rows">${guide.rows.map(([word,meaning,example,translation])=>`<div class="usage-row"><strong>${esc(word)}</strong><div><p class="usage-meaning">${esc(meaning)}</p><p class="usage-example" lang="en">${esc(example)}</p><p class="usage-translation">${esc(translation)}</p></div></div>`).join('')}</div><p class="usage-note">${esc(guide.note)}</p></section>`:'';
- const pairs=lesson.comparisons?`<section class="lesson-section comparison-section" aria-label="易混用法对比"><h2>怎么区分</h2>${lesson.comparisons.map(c=>`<article class="comparison-card"><h3>${esc(c.title)}</h3><div class="comparison-options">${c.options.map(([name,meaning,example,translation])=>`<div class="comparison-option"><strong>${esc(name)}</strong><p class="comparison-meaning">${esc(meaning)}</p><p class="comparison-example" lang="en">${esc(example)}</p><p class="comparison-translation">${esc(translation)}</p></div>`).join('')}</div><p class="comparison-takeaway"><span>区别</span>${esc(c.takeaway)}</p></article>`).join('')}</section>`:'';
- return usage+pairs;
+ const selectedPairs=lesson.comparisonsToShow?lesson.comparisonsToShow.map(i=>lesson.comparisons[i]):lesson.comparisons;
+ const pairs=selectedPairs?.length?`<section class="lesson-section comparison-section" aria-label="易混用法对比"><h2>${esc(comparisonHeadings[lesson.id])}</h2>${selectedPairs.map(c=>`<article class="comparison-card"><h3>${esc(c.title)}</h3><div class="comparison-options">${c.options.map(([name,meaning,example,translation])=>`<div class="comparison-option"><strong>${esc(name)}</strong><p class="comparison-meaning">${esc(meaning)}</p><p class="comparison-example" lang="en">${esc(example)}</p><p class="comparison-translation">${esc(translation)}</p></div>`).join('')}</div><p class="comparison-takeaway"><span>区别</span>${esc(c.takeaway)}</p></article>`).join('')}</section>`:'';
+ return part==='usage'?usage:part==='pairs'?pairs:usage+pairs;
 }
