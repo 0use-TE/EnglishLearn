@@ -7,7 +7,7 @@ import path from 'node:path';
 const dist = fileURLToPath(new URL('../dist/', import.meta.url));
 const index = path.join(dist, 'index.html');
 const source = await readFile(index, 'utf8');
-const references = [...source.matchAll(/\b(?:src|href)="([^"?#]+\.(?:js|css))(?:\?[^"#]*)?"/g)];
+const references = [...source.matchAll(/\b(?:src|href)="([^"?#]+\.(?:js|css|svg|png))(?:\?[^"#]*)?"/g)];
 let result = source;
 for (const match of references) {
   const name = match[1];
@@ -18,4 +18,4 @@ for (const match of references) {
   result = result.replace(match[0], match[0].replace(/=".*"$/, `="${name}?v=${hash}"`));
 }
 if (result !== source) await writeFile(index, result);
-console.log(`Versioned ${references.length} local JS/CSS assets.`);
+console.log(`Versioned ${references.length} local assets.`);

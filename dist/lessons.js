@@ -270,3 +270,51 @@ Object.assign(lessons.find(l=>l.id==='questions'),{
  ],mainExampleCount:4,comparisonsToShow:[1]
 });
 lessons.find(l=>l.id==='modals').omitExamples=true;
+
+Object.assign(lessons.find(l=>l.id==='sentence'),{
+ examples:[
+  ['I write code.','我写代码。','I 是主语；write 是谓语动词；code 是宾语。主语、谓语和宾语组成句子的基本骨架。'],
+  ['My cat is sleepy.','我的猫困了。','My cat 是主语；is 是系动词；sleepy 是表语，说明猫的状态。'],
+  ['We study English at home.','我们在家学英语。','We study English 已经说明“谁学习什么”。at home 是介词短语，在这里作地点状语，补充“在哪里学习”。'],
+  ['At home, we study English.','在家时，我们学英语。','地点短语也可以前置，突出“在家”这个背景；这不是任意打乱句子，而是移动一整个状语。'],
+  ['We often study English at home.','我们经常在家学英语。','often 表示频率，通常在实义动词 study 前；地点状语 at home 则在句末。'],
+  ['She is always busy.','她总是很忙。','always 是频率副词，通常在 be 动词 is 后。busy 是表语，不是宾语。']
+ ],
+ sections:[
+  {title:'主语、谓语和宾语',paragraph:'先找谁在做事、做什么、动作涉及什么对象。句子成分是词或短语在句中的角色。',examples:[0]},
+  {title:'表语说明主语',paragraph:'有些句子不是“做某个动作”，而是通过 be、seem 等系动词说明主语的身份或状态。',examples:[1]},
+  {title:'状语补充动作发生的背景',paragraph:'状语可以说明地点、时间、方式、频率等。We study English at home 中的 at home 补充学习地点，放在基本骨架之后。这里去掉它仍是完整句子，但补充它能把意思说得更具体。状语可以是一个词，也可以是一个短语或从句。',examples:[2,3]},
+  {title:'位置取决于状语的类型',paragraph:'英语词序有规则。地点、时间、方式状语与 often、always 这类频率副词的位置习惯不同。以下是入门时最常用的安排，不是所有语境的唯一位置。',table:{headers:['类型','常见位置与例子'],rows:[
+   ['地点','通常在句末：We study English at home.'],
+   ['时间','常在句末，也可前置：We study English every day. / Every day, we study English.'],
+   ['方式','常在动词的宾语后：She reads English carefully.'],
+   ['频率','常在实义动词前、be 后：We often study. / She is always busy.']
+  ]},examples:[4,5]}
+ ],mainExampleCount:6,
+ shortTip:'普通语序下，不要把地点状语插在动词与短宾语之间：先说 study English，再补 at home。',
+ tip:'at home 是介词短语，状语是它在这句话里的作用；“介词短语”和“状语”不是同一层级的分类。此处地点信息可省略，但并非所有动词后的地点都能删去，例如 put 通常还需要说明把东西放在哪里。',
+ related:['adjectives','prepositions','patterns'],
+ source:['British Council · 状语的位置','https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/where-adverbials-go-sentence']
+});
+Object.assign(lessons.find(l=>l.id==='adjectives'),{
+ explain:'形容词常说明人或事物的特征；副词常修饰动作、形容词或整个句子。它们的位置取决于所修饰的对象和结构，不能把修饰语随意插进句子。先掌握最常见的位置，再学习例外。',
+ pattern:'形容词：a quiet room / The room is quiet.　副词：read carefully',
+ examples:[
+  ['It is a quiet room.','这是一个安静的房间。','quiet 修饰名词 room，放在名词前，作定语。'],
+  ['The room is quiet.','这个房间很安静。','quiet 通过系动词 is 描述 room，作表语。这与前一句是两种不同结构。'],
+  ['She reads English carefully.','她认真地读英语。','carefully 说明“怎样读”，作方式状语，通常放在宾语 English 后。不能因为它是修饰语就随意插在 reads 和 English 之间。'],
+  ['She often reads English.','她经常读英语。','often 表示频率，通常放在实义动词 reads 前。'],
+  ['She is always busy.','她总是很忙。','always 通常在 be 后；busy 是描述主语状态的形容词。'],
+  ['I want something useful.','我想要点有用的东西。','修饰 something、anything 等不定代词时，形容词通常后置：something useful，而不是 useful something。']
+ ],
+ sections:[
+  {title:'形容词在名词前，或通过系动词作表语',paragraph:'a quiet room 和 The room is quiet 都正确，因为 quiet 在两个结构里的作用不同。它不是可以在原句中随便换位置。',examples:[0,1]},
+  {title:'方式副词通常放在宾语后',paragraph:'当副词表示动作做得怎样时，句末是常见位置。有些方式副词也可放在动词前，但一般不要把动词与它的短宾语隔开。',examples:[2]},
+  {title:'频率副词常在实义动词前、be 后',paragraph:'often、usually、always 等表示动作发生得多频繁。若有助动词，频率副词也常在第一个助动词后，如 She has often helped me。',examples:[3,4]},
+  {title:'不定代词后的形容词',paragraph:'“形容词通常在名词前”是基本规律，不是没有例外。something useful 这类结构需要单独认识。',examples:[5]}
+ ],mainExampleCount:6,
+ shortTip:'先判断修饰什么：quiet room 描述房间；read carefully 描述阅读动作。位置随功能变化。',
+ tip:'very 等程度副词通常放在被修饰的形容词或副词前，如 very quiet、very carefully。少数形容词常用于特定位置，不能只凭中文词序推断所有英语句子。',
+ related:['sentence','prepositions'],
+ source:['Cambridge · 形容词的位置','https://dictionary.cambridge.org/grammar/british-grammar/adjective-phrases-position']
+});

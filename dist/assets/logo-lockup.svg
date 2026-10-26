@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="270" height="80" viewBox="0 0 270 80" fill="none">
+  <title>从句子开始 · 英语语法地图</title>
+  <g transform="translate(8 8)">
+    <rect width="64" height="64" rx="17" fill="#355B40"/>
+    <path d="M15.5 46 27.2 18.4c.4-.9 1.7-.9 2.1 0L41 46" stroke="#FAFBF3" stroke-width="6.2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M20.2 35h16.2" stroke="#FAFBF3" stroke-width="5.2" stroke-linecap="round"/>
+    <circle cx="49" cy="45" r="4" fill="#C4D99C"/>
+  </g>
+  <text x="91" y="41" fill="#28392E" font-family="Noto Sans SC,Microsoft YaHei,system-ui,sans-serif" font-size="28" font-weight="600" letter-spacing="1">从句子开始</text>
+  <text x="92" y="62" fill="#829373" font-family="Noto Sans SC,Microsoft YaHei,system-ui,sans-serif" font-size="11" letter-spacing="2">英语语法地图</text>
+</svg>
