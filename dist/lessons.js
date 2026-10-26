@@ -16,6 +16,19 @@ L('sentence',0,'句子成分','The anatomy of a sentence','先找到“谁”和
 L('patterns',0,'基本句型','Five basic sentence patterns','把复杂句子先缩成几个简单模型。','常见陈述句可以用五种入门模型理解：主谓、主系表、主谓宾、主谓双宾、主谓宾补。不是每个句子都要有宾语；要看动词需要怎样的搭配。这是入门分析工具，不是所有句式的穷尽分类。','S 主语 · V 动词 · O 宾语 · C 补足语',[
  ['Birds fly. / She is happy.','鸟会飞。/ 她很开心。','主谓 / 主系表。'],['I like tea. / She gave me a book.','我喜欢茶。/ 她给了我一本书。','主谓宾 / 主谓双宾：me 是接受者，a book 是事物。'],['We keep the room clean.','我们让房间保持干净。','主谓宾补：clean 补充说明 the room 的状态。']
 ],'不要在每个英文动词后面都加东西。例如 arrive 通常不直接接地点宾语，要说 arrive at the station。','She gave me a pen. 属于哪种句型？',['主谓','主谓双宾','主系表'],1,'gave 后有接受者 me 和物品 a pen，构成双宾语。');
+L('transitive',0,'及物与不及物动词','Transitive & intransitive verbs','看动词能不能直接接宾语。','及物用法中，动词直接接宾语，如 enjoy music；不及物用法中，动词不直接接宾语，如 sleep。要补充地点或对象时，可能需要介词，如 arrive at the station、listen to music。许多动词两种用法都有，要连同词义和搭配一起学。词典里的 vt. 表示及物，vi. 表示不及物；有的词典用 T / I。','及物：动词 + 宾语 · 不及物：动词（+ 补充信息）',[
+ ['I enjoy music.','我喜欢音乐。','enjoy 直接接 music，是及物用法。'],
+ ['The cat sleeps on the sofa.','猫在沙发上睡觉。','sleep 是不及物用法；on the sofa 是地点信息。'],
+ ['We reached the station. / We arrived at the station.','我们到达了车站。','同样是“到达”，reach 直接接地点，arrive 需要 at / in。'],
+ ['I read books. / I read every day.','我读书。/ 我每天阅读。','read 既可带宾语，也可不带宾语，不能只把一个单词固定归一类。']
+],'介词后面的名词不是动词的直接宾语：listen to music 中，music 是介词 to 的宾语。','哪句表示“我们到达了车站”？',['We arrived the station.','We reached the station.','We reached to the station.'],1,'reach 直接接地点；arrive 通常用 arrive at / in + 地点。');
+L('double-objects',0,'双宾语常用动词','Verbs with two objects','先记“给谁什么”，再记动词搭配。','双宾语结构中，间接宾语常是接受者或受益者，直接宾语常是所给的事物。常见结构是 give someone something。许多这类动词也能用“物 + to / for + 人”的结构，但不能对所有动词机械换序。下表给出常用搭配，先把词组一起记。','动词 + 人（间接宾语） + 物（直接宾语）',[
+ ['She gave me a book.','她给了我一本书。','me 是间接宾语，a book 是直接宾语；也可说 She gave a book to me.'],
+ ['He bought me a coffee.','他给我买了一杯咖啡。','也可说 He bought a coffee for me.；这里 a coffee 表示一杯咖啡。'],
+ ['She gave a book to me. / He bought a coffee for me.','她给了我一本书。/ 他给我买了一杯咖啡。','give 常用 to 引出接受者；buy 常用 for 引出受益者。'],
+ ['Please explain the rule to me.','请向我解释这条规则。','标准英语中通常不说 explain me the rule；describe 也常用 describe something to someone。'],
+ ['Give it to me.','把它给我。','物是 it 等代词时，初学先用“物 + to / for + 人”的顺序，更稳妥。']
+],'to / for 取决于具体动词及含义；不要把 explain、describe 等照搬成“动词 + 人 + 物”。','把“她给我买了一本书”换成另一种表达：She bought a book ___ me.',['to','for','at'],1,'buy someone something 可换成 buy something for someone，表示为某人购买。');
 L('be',0,'be 动词','Be: am, is, are','英语里的“很开心”，也需要一个动词。','be 可以连接主语和身份、状态或位置。现在时中 I 配 am；he、she、it 和单数名词通常配 is；you、we、they 和复数名词配 are。过去时常用 was / were。','I am… / He is… / You are…',[
  ['I am a developer.','我是一名开发者。','a developer 说明身份。'],['The cat is happy.','这只猫很开心。','happy 是形容词，前面需要 is。'],['They were at home yesterday.','他们昨天在家。','were 表示过去的状态。']
 ],'I am happy. 不能写成 I happy.；但 I write code. 中也不要多加 am。be 只有在相应结构里才出现。','选择正确的句子。',['She happy.','She is happy.','She are happy.'],1,'She 使用 is，happy 通过 is 描述主语的状态。');
@@ -108,6 +121,8 @@ const tenseGrid = [
 
 // Concise default view; full explanations stay available on demand.
 const quickNotes = {
+ transitive:[['及物 vt.：直接接宾语，如 enjoy music。','不及物 vi.：不直接接宾语，如 sleep。','同一动词可两用：I read books. / I read every day.'],'reach the station ✓；arrive at the station ✓'],
+ 'double-objects':[['人 + 物：give me a book。','换序常见两类：give a book to me；buy a book for me。','先记搭配，不是所有动词都能这样换。'],'explain the rule to me ✓；explain me the rule ✗'],
  sentence:[['主语：谁或什么。','谓语：动作或状态。','宾语：动作的对象；表语：主语的身份或状态。'],'词性是词的类别，成分是词在句中的作用。'],
  patterns:[['主谓 / 主系表 / 主谓宾。','主谓双宾：给某人某物。','主谓宾补：补充说明宾语。'],'动词决定搭配，不是每句都有宾语。'],
  be:[['I 用 am；he / she / it 用 is。','you / we / they 用 are。','过去用 was / were。'],'I am happy. ✓　I happy. ✗'],
@@ -143,3 +158,22 @@ for (const lesson of lessons) {
  const [rules,shortTip]=quickNotes[lesson.id];
  lesson.rules=rules;lesson.shortTip=shortTip;
 }
+
+const lessonExtras = {
+ transitive:{
+  reference:{title:'常见搭配',headers:['用法','例子'],rows:[['及物','enjoy music · 喜欢音乐\nreach the station · 到达车站'],['不及物','sleep · 睡觉\narrive at the station · 到达车站'],['两种都可','open the door · 打开门\nThe door opened. · 门开了']]},
+  related:['patterns','double-objects'],
+  source:['British Council · 动词与句型','https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/clause-structure-verb-patterns']
+ },
+ 'double-objects':{
+  reference:{title:'常用双宾搭配',headers:['动词','人 + 物'],rows:[['give 给','give me a book'],['send 寄、发','send me a message'],['show 展示','show me a photo'],['tell 告诉','tell me a story'],['teach 教','teach me English'],['lend 借出','lend me a pen'],['offer 提供','offer me a job'],['pass 递','pass me the salt'],['hand 递交','hand me the keys'],['buy 买','buy me a coffee'],['make 制作','make me a sandwich'],['cook 做饭','cook me dinner']]},
+  related:['patterns','transitive'],
+  source:['Cambridge · 宾语','https://dictionary.cambridge.org/us/grammar/british-grammar/objects']
+ },
+ patterns:{related:['transitive','double-objects']}
+};
+for (const lesson of lessons) Object.assign(lesson,lessonExtras[lesson.id]||{});
+
+const doubleObjects = lessons.find(l => l.id === 'double-objects');
+doubleObjects.reference.headers.push('换序用');
+doubleObjects.reference.rows.forEach((row, index) => row.push(index < 9 ? 'to' : 'for'));
