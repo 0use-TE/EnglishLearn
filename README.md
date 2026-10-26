@@ -4,7 +4,7 @@
 
 在线访问：[英语语法地图](https://0use.net/EnglishLearn/)
 
-首页提供可缩放、拖动、搜索和全屏查看的详细语法导图，包含 8 个领域、209 个知识点，支持折叠、分支聚焦、节点解释和相关课程跳转；共 128 道练习，包含逐题解析、结果统计和错题重练。例句直接展示语法拆解。
+首页提供可缩放、拖动、搜索和全屏查看的详细语法导图，包含 8 个领域、209 个知识点，支持折叠、分支聚焦、节点解释和相关课程跳转；共 128 道练习，包含逐题解析、结果统计和错题重练。例句直接展示语法拆解。按需为 13 节易混内容添加成对用法对比；情态动词另有能力、许可、建议、义务与推测对照。
 
 ## 部署
 
@@ -22,4 +22,4 @@
 
 ## 内容
 
-导图数据在 dist/atlas-data.js，交互在 dist/atlas.js。课程数据在 dist/lessons.js，补充题目在 dist/exercises.js，答题交互在 dist/practice.js，页面在 dist/app.js，样式在 dist/style.css。讲解与例句是面向初学者的原创入门内容，非穷尽性参考语法。
+导图数据在 dist/atlas-data.js，交互在 dist/atlas.js。课程数据在 dist/lessons.js，补充题目在 dist/exercises.js，对比讲解在 dist/comparisons.js，答题交互在 dist/practice.js，页面在 dist/app.js，样式在 dist/style.css。讲解与例句是面向初学者的原创入门内容，非穷尽性参考语法。
