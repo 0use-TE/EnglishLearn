@@ -2,6 +2,12 @@
 
 中文初学者语法手册，6 章、30 个主题，每节包含中文解释、结构、中英例句、易错提醒、选择题和造句草稿。无构建依赖，静态文件在 `dist/`。
 
+在线访问：[英语语法地图](https://0use.net/EnglishLearn/)
+
+## 部署
+
+推送到 `main` 后，GitHub Actions 自动将 `dist/` 部署到 GitHub Pages。也可以在 Actions 中手动运行 `Deploy GitHub Pages`。无需安装依赖或配置密钥。
+
 ## 本地打开
 
 在此目录运行 `python -m http.server 4173 --directory dist`，然后访问 http://localhost:4173 。也可直接打开 dist/index.html。
