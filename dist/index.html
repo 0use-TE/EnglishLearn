@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f5f7f3"><meta name="description" content="从一句话开始，理解英语语法。中文讲解、中英例句、句子拆解和互动练习，串起英语语法的完整入门地图。">
+  <title>从句子开始 · 英语语法地图</title>
+  <link rel="stylesheet" href="style.css"><script defer src="lessons.js"></script><script defer src="app.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">跳到主要内容</a>
+<aside class="sidebar" id="sidebar">
+  <a href="#" class="brand"><span class="brand-icon">Aa<span>↗</span></span><span>从句子开始<small>ENGLISH, PIECE BY PIECE.</small></span></a>
+  <div class="side-label">你的语法学习手册</div>
+  <nav class="main-nav" aria-label="主导航">
+    <a href="#" data-nav="home"><span>◫</span> 语法地图 <i>HOME</i></a>
+    <a href="#lesson/sentence" data-nav="lesson"><span>▤</span> 开始学习</a>
+    <a href="#review" data-nav="review"><span>⌑</span> 我的收藏 <b id="bookmark-count">0</b></a>
+  </nav>
+  <div class="side-label section-label">学习目录 <span>6 个章节</span></div>
+  <nav id="chapter-nav" class="chapter-nav" aria-label="章节目录"></nav>
+  <div class="side-bottom"><div class="progress-title"><span>一点点，也在向前</span><span id="progress-count">0 / 30</span></div><div class="progress-track"><span id="progress-bar"></span></div><p>进度保存在当前浏览器</p></div>
+</aside>
+<div class="workspace">
+  <header class="topbar"><div class="crumb"><button id="menu-toggle" class="icon-button" aria-label="展开或收起目录" aria-expanded="false">☰</button><span>学习空间</span><span class="slash">/</span><strong id="breadcrumb">语法地图</strong></div><button class="search-trigger" id="search-trigger"><span>⌕</span> 搜索知识点、例句… <kbd>/</kbd></button><span class="profile" title="你的学习空间">O</span></header>
+  <main id="main" tabindex="-1"></main>
+  <footer>从句子开始 <span>·</span> 先理解，再使用，慢慢变熟悉。<a href="#references">参考与说明 ↗</a></footer>
+</div>
+<dialog id="search-dialog"><div class="search-head"><span>⌕</span><input id="search-input" placeholder="试试：现在完成时、定语从句、have…" aria-label="搜索语法知识"><button id="search-close" class="icon-button" aria-label="关闭搜索">×</button></div><div id="search-results"></div><div class="search-foot">按 Esc 关闭 · 按知识点、英文名称和例句搜索</div></dialog>
+<div id="toast" role="status"></div>
+</body></html>
