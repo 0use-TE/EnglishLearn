@@ -2,32 +2,32 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#f5f7f3"><meta name="description" content="从一句话开始，理解英语语法。中文讲解、中英例句、句子拆解和互动练习，串起英语语法的完整入门地图。">
-  <title>从句子开始 · 英语语法地图</title>
+  <meta name="theme-color" content="#f5f7f3"><meta name="description" content="面向中文学习者的英语读写练习：分难度阅读、英文消息与邮件写作、词汇积累、统一复习与语法地图。">
+  <title>从句子开始 · 英语读写</title>
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png?v=b547af1c70a6">
   <link rel="icon" type="image/svg+xml" href="assets/logo.svg?v=2b3376ecbb07">
   <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png?v=e47027ee72ab">
-  <link rel="stylesheet" href="style.css?v=7c7e730209a9"><link rel="stylesheet" href="atlas.css?v=cbed27dc9ced"><link rel="stylesheet" href="comparisons.css?v=770653a0010c"><link rel="stylesheet" href="navigation.css?v=1605811ddf51"><script defer src="lessons.js?v=7f420d2025fd"></script><script defer src="exercises.js?v=a32ab474b6c5"></script><script defer src="practice.js?v=beb0b01a1e99"></script><script defer src="comparisons.js?v=39d07d575c3d"></script><script defer src="atlas-data.js?v=cad944aa09f4"></script><script defer src="atlas.js?v=4e8b594e6d35"></script><script defer src="app.js?v=0ce0ab2aa92e"></script>
+  <link rel="stylesheet" href="style.css?v=7c7e730209a9"><link rel="stylesheet" href="atlas.css?v=cbed27dc9ced"><link rel="stylesheet" href="comparisons.css?v=770653a0010c"><link rel="stylesheet" href="navigation.css?v=1605811ddf51"><script defer src="lessons.js?v=7f420d2025fd"></script><script defer src="exercises.js?v=a32ab474b6c5"></script><script defer src="practice.js?v=186f3f25c6f2"></script><script defer src="comparisons.js?v=39d07d575c3d"></script><script defer src="atlas-data.js?v=cad944aa09f4"></script><script defer src="atlas.js?v=4e8b594e6d35"></script><link rel="stylesheet" href="study.css?v=408972ef4909"><script defer src="study-data.js?v=7c33f88c6b5a"></script><script defer src="study-advanced.js?v=ce1961d81af2"></script><script defer src="reading-basics.js?v=bb599d23b59d"></script><script defer src="reading-practical.js?v=f2d71c2566b1"></script><script defer src="reading-longform.js?v=fe3a9db9960d"></script><script defer src="reading-perspectives.js?v=b0f184d24136"></script><script defer src="study.js?v=54b452e9220c"></script><script defer src="app.js?v=003636400288"></script>
 </head>
 <body>
 <a class="skip" href="#main">跳到主要内容</a>
 <aside class="sidebar" id="sidebar">
   <a href="#" class="brand"><img class="brand-logo" src="assets/logo.svg?v=2b3376ecbb07" alt="" width="42" height="42"><span>从句子开始</span></a>
   
-  <nav class="main-nav" aria-label="主导航">
-    <a href="#" data-nav="home"><span>◫</span> 语法目录</a>
+  <a class="area-back" href="#">← 学习首页</a><nav class="main-nav" aria-label="主导航">
+    <a href="#grammar" data-nav="home"><span>◫</span> 语法目录</a>
     <a href="#lesson/sentence" data-nav="lesson"><span>▤</span> 开始学习</a>
     <a href="#review" data-nav="review"><span>⌑</span> 收藏 <b id="bookmark-count">0</b></a>
   </nav>
   <div class="side-label section-label">章节</div>
   <nav id="chapter-nav" class="chapter-nav" aria-label="章节目录"></nav>
-  <div class="side-bottom"><div class="progress-title"><span>已读</span><span id="progress-count">—</span></div><div class="progress-track"><span id="progress-bar"></span></div></div>
+  <nav id="study-nav" class="study-nav" aria-label="学习目录" hidden></nav><a class="sidebar-review" href="#revision">统一复习本 →</a><div class="side-bottom"><div class="progress-title"><span>已读</span><span id="progress-count">—</span></div><div class="progress-track"><span id="progress-bar"></span></div></div>
 </aside>
 <div class="workspace">
-  <header class="topbar"><div class="crumb"><button id="menu-toggle" class="icon-button" aria-label="展开或收起目录" aria-expanded="false">☰</button><strong id="breadcrumb">语法地图</strong></div><button class="search-trigger" id="search-trigger"><span>⌕</span> 搜索语法… <kbd>/</kbd></button><span class="profile" title="你的学习空间">O</span></header>
+  <header class="topbar"><div class="crumb"><button id="menu-toggle" class="icon-button" aria-label="展开或收起目录" aria-expanded="false">☰</button><strong id="breadcrumb">语法地图</strong></div><button class="search-trigger" id="search-trigger"><span>⌕</span> 搜索内容… <kbd>/</kbd></button><span class="profile" title="你的学习空间">O</span></header>
   <main id="main" tabindex="-1"></main>
   <footer>从句子开始 <a href="#references">说明</a></footer>
 </div>
-<dialog id="search-dialog"><div class="search-head"><span>⌕</span><input id="search-input" placeholder="搜索语法或例句" aria-label="搜索语法知识"><button id="search-close" class="icon-button" aria-label="关闭搜索">×</button></div><div id="search-results"></div><div class="search-foot">Esc 关闭</div></dialog>
+<dialog id="search-dialog"><div class="search-head"><span>⌕</span><input id="search-input" placeholder="搜索语法、阅读或表达" aria-label="搜索学习内容"><button id="search-close" class="icon-button" aria-label="关闭搜索">×</button></div><div id="search-results"></div><div class="search-foot">Esc 关闭</div></dialog>
 <div id="toast" role="status"></div>
 </body></html>

@@ -1,4 +1,4 @@
-function mountPractice(root, questions) {
+function mountPractice(root, questions, options={}) {
   let order=questions.map((_,i)=>i), answers=order.map(()=>null), position=0;
   function reset(indices){order=indices;answers=indices.map(()=>null);position=0;draw();}
   function draw(){
@@ -9,7 +9,7 @@ function mountPractice(root, questions) {
       <div class="quiz-options">${question.options.map((o,i)=>`<button class="quiz-option ${answered?(i===question.answer?'correct':i===selected?'wrong':''):''}" data-answer="${i}" aria-pressed="${selected===i}" ${answered?'disabled':''}><span>${String.fromCharCode(65+i)}</span>${esc(o)}</button>`).join('')}</div>
       <div id="quiz-feedback" class="${answered?'feedback '+(selected===question.answer?'correct':'wrong'):''}" role="status">${answered?`${selected===question.answer?'✓ 正确':'✗ 正确答案：'+String.fromCharCode(65+question.answer)}。${esc(question.why)}`:''}</div>
       <div class="practice-actions"><button class="practice-prev" ${position===0?'disabled':''}>上一题</button><button class="button primary practice-next" ${!answered?'disabled':''}>${position===order.length-1?'查看结果':'下一题 →'}</button></div>`;
-    root.querySelectorAll('[data-answer]').forEach(button=>button.onclick=()=>{if(answers[position]!==null)return;answers[position]=Number(button.dataset.answer);draw();root.querySelector('.practice-next').focus({preventScroll:true});});
+    root.querySelectorAll('[data-answer]').forEach(button=>button.onclick=()=>{if(answers[position]!==null)return;answers[position]=Number(button.dataset.answer);options.onAnswer?.(order[position],answers[position],questions[order[position]]);draw();root.querySelector('.practice-next').focus({preventScroll:true});});
     root.querySelector('.practice-prev').onclick=()=>{if(position>0){position--;draw();}};
     root.querySelector('.practice-next').onclick=()=>{if(!answered)return;if(position<order.length-1){position++;draw();}else results();};
   }
