@@ -25,4 +25,11 @@ for(const e of entries){
 for(const category of Object.keys(categories))assert.ok(entries.some(e=>e.category===category),category+': empty category');
 assert.ok(html.includes('src="vocabulary-data.js'),'Vocabulary data must be served');
 assert.ok(html.includes('src="vocabulary.js'),'Vocabulary UI must be served');
+vm.runInContext(fs.readFileSync(new URL('../dist/vocabulary.js',import.meta.url),'utf8'),context);
+const parts=JSON.parse(vm.runInContext('JSON.stringify(vocabularyBank.filter(e=>e.type==="word").map(e=>({en:e.en,...vocabularyParts(e)})))',context));
+for(const entry of parts){assert.ok(entry.parts.length>0,entry.en+': missing visible part of speech');for(const p of entry.parts)assert.match(p.label,/[\u3400-\u9fff]/,entry.en+': unknown part of speech')}
+assert.deepEqual(parts.find(e=>e.en==='access').parts.map(p=>p.code),['n','v']);
+assert.deepEqual(parts.find(e=>e.en==='to').parts.map(p=>p.code),['prep','infinitive marker']);
+assert.deepEqual(parts.find(e=>e.en==='may').parts.map(p=>p.code),['modal','n']);
 console.log(`${entries.length} unique entries: 1100 words, 300 phrases; ${Object.keys(categories).length} categories. Examples, translations and learning tiers are complete.`);
+console.log('All 1100 words have visible Chinese part-of-speech labels.');
